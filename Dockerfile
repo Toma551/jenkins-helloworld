@@ -1,3 +1,5 @@
-FROM debian
-RUN apt update
-RUN apt install figlet --yes
+FROM openjdk:19
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN javac Main.java
+CMD ["java", "Main"]
